@@ -47,7 +47,225 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /** Your CSS Below **/
+/* CSS Variables */
+:root {
+  /* Layout */
+  --width-mobile: 375px;
+  --width-desktop: 1440;     
 
-/** Attribution CSS **/
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
+  /* Colours */
+  --clr-lightRed: hsl(0, 100%, 67%);
+  --clr-orangeYellow: hsl(39, 100%, 56%);
+  --clr-greenTeal: hsl(160, 50%, 40%);   /* Changed to greenTeal using ChatGPT as a reference */
+  --clr-cobaltBlue: hsl(234, 85%, 45%);
+
+  /* Gradients */
+  --gra-lightSlateBlue: hsl(252, 100%, 67%); /* Background */
+  --gra-lightRoyalBlue: hsl(241, 81%, 54%); /* Background */
+
+  --gra-violetBlue: hsl(256, 72%, 46%, 1); /* Circle */
+  --gra-persianBlue: hsl(241%, 72%, 46%, 0); /* Circle */
+
+  /* Neutral Colours */
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-paleBlue: hsl(221, 100%, 96%);
+  --clr-lightLavender: hsl(241, 100%, 89%);
+  --clr-darkGrayBlue: hsl(224, 30%, 27%);
+
+  /* Typography */
+  --font-paragraph: 18px;
+  --fw-regular: 500;
+  --fw-bold: 700;
+  --fw-black: 800;
+
+  /* Fonts */
+  --fs-base: 'Hanken Grotesk';
+}
+
+/* Styles */
+body {
+  font-family: var(--fs-base);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--clr-paleBlue);
+  margin: 0;
+  padding: 1rem;
+}
+
+/* Card Layout */
+.card {
+  background: var(--clr-white);
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  max-width: var(--width-mobile);
+  box-shadow: 0 1rem 2rem rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
+
+/* Result Section */
+.result {
+  background: linear-gradient(
+    var(--gra-lightSlateBlue),
+    var(--gra-lightRoyalBlue)
+  );
+  border-radius: 0 0 2rem 2rem;
+  padding: 2rem 3rem;
+  text-align: center;
+  color: var(--clr-lightLavender);
+}
+
+.result__title {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.result__score {
+  background: var(--gra-violetBlue, var(--gra-persianBlue));
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden; 
+  box-shadow: 0px 0px 50px 15px rgba(0, 0, 0, 0.4); /* Shadow effect */
+}
+
+.score__number {
+  font-size: 3.5rem;
+  font-weight: var(--fw-black);
+  color: var(--clr-white);
+  line-height: 1;
+}
+
+.score__total {
+  opacity: 0.6;
+}
+
+.result__rank {
+  color: var(--clr-white);
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+}
+
+.result__description {
+  font-size: var(--font-paragraph);
+  margin: 0 auto;
+  max-width: 25ch;
+}
+
+/* Summary Section */
+.summary {
+  padding: 2rem;
+}
+
+.summary__title {
+  color: var(--clr-darkGrayBlue);
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.summary__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+}
+
+.summary__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.summary__item.reaction {
+  background-color: hsla(0, 100%, 65%, 0.086);
+  color: var(--clr-lightRed);
+}
+
+.summary__item.memory {
+  background-color: hsla(39, 100%, 65%, 0.092);
+  color: var(--clr-orangeYellow);
+}
+
+.summary__item.verbal {
+  background-color: hsla(168, 100%, 65%, 0.151);
+  color: var(--clr-greenTeal);
+}
+
+.summary__item.visual {
+  background-color: hsla(234, 100%, 65%, 0.082);
+  color: var(--clr-cobaltBlue);
+}
+
+.item__group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.item__score {
+  color: var(--clr-darkGrayBlue);
+}
+
+.item__score span {
+  font-weight: var(--fw-bold);
+}
+
+/* Button */
+.summary__button {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 2rem;
+  background: var(--clr-darkGrayBlue);
+  color: var(--clr-white);
+  font-size: 1.1rem;
+  font-weight: var(--fw-bold);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.summary__button:hover {
+  background: linear-gradient(
+    var(--gra-lightSlateBlue),
+    var(--gra-lightRoyalBlue)
+  );
+}
+
+/* https://www.youtube.com/watch?v=i8bOsdnt0fI&t=81s 
+   using CSS variables video reference*/
+:root {
+  --width-mobile: 375px;
+}
+
+@media (min-width: 768px) {
+  .card {
+    flex-direction: row;
+    max-width: calc(var(--width-mobile) * 2); /* Adjusting dynamically */
+    min-width: calc(var(--width-mobile) * 1.6); /* Adjusting dynamically */
+  }
+  
+  .result {
+    border-radius: 2rem;
+    flex: 1;
+  }
+  
+  .summary {
+    flex: 1;
+  }
+}
+
+.attribution {
+  font-size: 0.8rem;
+  text-align: center;
+}

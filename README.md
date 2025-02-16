@@ -1,1 +1,3 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/lufvgg0p)
+** https://www.youtube.com/watch?v=i8bOsdnt0fI&t=81s** An initial video to a series of videos teaching variables in CSS.
+** Changed a variable in the variable.css file to reflect the correct color **
